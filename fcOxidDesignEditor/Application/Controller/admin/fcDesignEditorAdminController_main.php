@@ -69,12 +69,12 @@ class fcDesignEditorAdminController_main extends AdminDetailsController
         $config= Registry::getConfig();
         $aParams = $config->getRequestParameter("editval");
 
-            foreach($aParams as $key => $value){
-                if (!isset($aParams['fcsupportform_plugins__oxactive'])) {
-//            $aParams['fcsupportform_plugins__oxactive'] = 0;
-//        }
-                $config->setConfigParam($key,$value);
+        foreach($aParams as $key => $value){
+            if (!isset($aParams['fcdesignedit__active'])) {
+                $aParams['fcdesignedit__active'] = 0;
             }
+            $config->setConfigParam($key,$value);
+        }
 
 
 
