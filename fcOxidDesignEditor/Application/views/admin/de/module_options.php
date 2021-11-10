@@ -5,7 +5,7 @@ $sLangName  = "Deutsch";
 // -------------------------------
 $aLang = array(
     'charset'                                   =>'UTF-8',
-    'FCDESIGNEDITOR'                            =>'Design Editor',
+    'FCDESIGNEDITOR'                            =>'Design',
     'FCDESIGNEDITOR_MAIN'                       =>'Main',
     'FCDESIGNEDITOR_MAIN_LOGOTITLE'             =>'Logo Header',
     'FCDESIGNEDITOR_MAIN_LOGOTITLE_HELP'        =>'Dies ersetzt das Logo im Shop Header',

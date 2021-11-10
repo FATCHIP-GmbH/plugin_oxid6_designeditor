@@ -5,7 +5,7 @@ $sLangName  = "English";
 // -------------------------------
 $aLang = array(
     'charset'                                   =>'UTF-8',
-    'FCDESIGNEDITOR'                            =>'Design Editor',
+    'FCDESIGNEDITOR'                            =>'Design',
     'FCDESIGNEDITOR_MAIN'                       =>'Main',
     'FCDESIGNEDITOR_MAIN_LOGOTITLE'             =>'Logo Header',
     'FCDESIGNEDITOR_MAIN_LOGOTITLE_HELP'        =>'This replaces the header Logo of the Current theme',
