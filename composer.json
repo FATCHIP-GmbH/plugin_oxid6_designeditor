@@ -1,0 +1,28 @@
+{
+  "name": "fatchip-gmbh/plugin_oxid6_designeditor",
+  "description": "An Oxid module for quick changing of Design features",
+  "type": "oxideshop-module",
+  "keywords": ["oxid", "modules", "eShop"],
+  "homepage": "https://www.fatchip.de/",
+  "license": [
+    "GPL-3.0"
+  ],
+  "extra": {
+    "oxideshop": {
+      "blacklist-filter": [
+        "README.md",
+        "Changelog.md"
+      ],
+      "target-directory": "fc/fcOxidDesignEditor",
+      "source-directory": "fc/fcOxidDesignEditor"
+    }
+  },
+  "require": {
+    "php": ">=7.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "fc\\fcOxidDesignEditor\\": "../../../source/modules/fc/fcOxidDesignEditor"
+    }
+  }
+}
