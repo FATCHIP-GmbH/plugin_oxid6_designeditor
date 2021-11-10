@@ -22,7 +22,7 @@
   },
   "autoload": {
     "psr-4": {
-      "fc\\fcOxidDesignEditor\\": "../../../source/modules/fc/fcOxidDesignEditor"
+      "FATCHIP\\fcOxidDesignEditor\\": "../../../source/modules/fc/fcOxidDesignEditor"
     }
   }
 }
