@@ -27,30 +27,54 @@
             <td width="15"></td>
             <td valign="top" class="edittext">
                 <table cellspacing="0" cellpadding="0" border="0">
-{*                 <!--   <tr>*}
-{*                        <td class="edittext">*}
-{*                            [{oxmultilang ident="GENERAL_ACTIVE"}]*}
-{*                        </td>*}
-{*                        <td class="edittext">*}
-{*                            <input class="edittext" type="checkbox" name="themeSettings[logo]" value='1' [{if $edit->fcdesignedit__active->value == 1}]checked[{/if}] [{$readonly}]>*}
-{*                            [{oxinputhelp ident="HELP_GENERAL_ACTIVE"}]*}
-{*                        </td>*}
-{*                    </tr> -->*}
                     <tr>
                         <td class="edittext">
                             [{oxmultilang ident="FCDESIGNEDITOR_MAIN_LOGOTITLE"}]
                         </td>
                         <td class="edittext">
-                            <input id="logoText" type="text" class="txt" name="confstrs[sLogoFile]" value="[{$confstrs.sLogoFile}]">
-                            [{oxinputhelp ident="HELP_CATEGORY_MAIN_THUMB"}]
+                            <input id="headerText" type="text" class="txt" name="confstrs[sLogoFile]" value="[{$confstrs.sLogoFile}]" >
+                            [{oxinputhelp ident="FCDESIGNEDITOR_MAIN_LOGOTITLE_HELP"}]
                         </td>
                     </tr>
                     <tr>
                         <td class="edittext">
-                            [{oxmultilang ident="FCDESIGNEDITOR_MAIN_LOGOUPLOAD"}] ([{oxmultilang ident="GENERAL_MAX_FILE_UPLOAD"}] [{$sMaxFormattedFileSize}], [{oxmultilang ident="GENERAL_MAX_PICTURE_DIMENSIONS"}])
+                            [{oxmultilang ident="FCDESIGNEDITOR_MAIN_LOGOTITLEUPLOAD"}]
                         </td>
                         <td class="edittext" colspan="2">
-                            <input id="myFile" class="editinput" name="userfile" type="file"  size="26"/>
+                            <input id="headerUpload" class="editinput" name="logotitleupload" type="file"  size="26" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="edittext">
+                            [{oxmultilang ident="FCDESIGNEDITOR_MAIN_LOGOEMAIL"}]
+                        </td>
+                        <td class="edittext">
+                            <input id="emailText" type="text" class="txt" name="confstrs[sEmailLogo]" value="[{$confstrs.sEmailLogo}]">
+                            [{oxinputhelp ident="FCDESIGNEDITOR_MAIN_LOGOEMAIL_HELP"}]
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="edittext">
+                            [{oxmultilang ident="FCDESIGNEDITOR_MAIN_LOGOEMAILUPLOAD"}]
+                        </td>
+                        <td class="edittext" colspan="2">
+                            <input id="emailUpload" class="editinput" name="logoemailupload" type="file"  size="26" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="edittext">
+                            [{oxmultilang ident="FCDESIGNEDITOR_MAIN_LOGOHEIGHT"}]
+                        </td>
+                        <td class="edittext">
+                            <input id="emailText" type="text" class="txt" name="confstrs[sLogoHeight]" value="[{$confstrs.sLogoHeight}]">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="edittext">
+                            [{oxmultilang ident="FCDESIGNEDITOR_MAIN_LOGOWIDTH"}]
+                        </td>
+                        <td class="edittext">
+                            <input id="emailText" type="text" class="txt" name="confstrs[sLogoWidth]" value="[{$confstrs.sLogoWidth}]">
                         </td>
                     </tr>
                     <tr>
@@ -66,14 +90,17 @@
     </table>
 </form>
 <script>
-    document.getElementById("myFile").onchange = uploadOnChange;
-    function uploadOnChange() {
-        var filename = this.value;
+    document.getElementById("headerUpload").onchange = fcHeader;
+    document.getElementById("emailUpload").onchange = fcEmail;
+    function fcHeader() { uploadOnChange("headerText",this.value)}
+    function fcEmail() { uploadOnChange("emailText",this.value)}
+
+    function uploadOnChange(textfield,filename) {
         var lastIndex = filename.lastIndexOf("\\");
         if (lastIndex >= 0) {
             filename = filename.substring(lastIndex + 1);
         }
-        document.getElementById("logoText").value = filename;
+        document.getElementById(textfield).value = filename;
     }
 </script>
 [{include file="bottomnaviitem.tpl"}]

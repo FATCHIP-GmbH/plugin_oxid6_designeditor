@@ -21,37 +21,6 @@ class fcDesignEditorAdminController_main extends ShopConfiguration
      */
     protected $_sThisTemplate = 'fcdesigneditoradmin_main.tpl';
 
-//    public function render()
-//    {
-//
-//
-//        $sShopId = $myConfig->getShopId();
-//
-//        if (!isset($sTheme)) {
-//            $sTheme = $this->_sTheme = $this->getConfig()->getConfigParam('sTheme');
-//        }
-//
-//        $oTheme = oxNew(\OxidEsales\Eshop\Core\Theme::class);
-//        if ($oTheme->load($sTheme)) {
-//            $this->_aViewData["oTheme"] = $oTheme;
-//
-//            try {
-//                $aDbVariables = $this->loadConfVars($sShopId, $this->_getModuleForConfigVars());
-//                $this->_aViewData["var_constraints"] = $aDbVariables['constraints'];
-//                $this->_aViewData["var_grouping"] = $aDbVariables['grouping'];
-//                foreach ($this->_aConfParams as $sType => $sParam) {
-//                    $this->_aViewData[$sParam] = $aDbVariables['vars'][$sType];
-//                }
-//            } catch (\OxidEsales\Eshop\Core\Exception\StandardException $oEx) {
-//                \OxidEsales\Eshop\Core\Registry::getUtilsView()->addErrorToDisplay($oEx);
-//                $oEx->debugOut();
-//            }
-//        } else {
-//            \OxidEsales\Eshop\Core\Registry::getUtilsView()->addErrorToDisplay(oxNew(\OxidEsales\Eshop\Core\Exception\StandardException::class, 'EXCEPTION_THEME_NOT_LOADED'));
-//        }
-//
-//        return 'theme_config.tpl';
-//    }
 
     /**
      * return theme filter for config variables
@@ -63,19 +32,9 @@ class fcDesignEditorAdminController_main extends ShopConfiguration
         return Config::OXMODULE_THEME_PREFIX . $this->getConfig()->getConfigParam('sTheme');
     }
 
-
 //    public function render()
 //    {
 //        parent::render();
-//        $config = $this->getConfig();
-//        $confVars = new stdClass();
-//        error_log($config->getConfigParam("sLogoFile"));
-//        $confVars->sLogoFile = $config->getConfigParam("sLogoFile");
-//
-//        $this->_aViewData["confstrs"] = $confVars;
-//
-//
-//        return $this->_sThisTemplate;
 //    }
 
     /**
@@ -85,16 +44,16 @@ class fcDesignEditorAdminController_main extends ShopConfiguration
     {
         parent::save();
         $config = Registry::getConfig();
-
-        $name = $_FILES["userfile"]["name"];
-        $tmp_name = $_FILES["userfile"]["tmp_name"];
-
-        error_log(Config::OXMODULE_THEME_PREFIX . $config->getConfigParam('sTheme'));
-        error_log( getShopBasePath() . "out/" . $config->getConfigParam('sTheme') . "/img/" . $name);
-        move_uploaded_file($tmp_name, getShopBasePath() . "out/" . $config->getConfigParam('sTheme') . "/img/" . $name);
-
-        foreach ($aParams as $key => $value) {
-            $config->saveShopConfVar("str", $key, $value, 1, Config::OXMODULE_THEME_PREFIX . $config->getConfigParam('sTheme'));
+        $params = $config->getRequestParameter("confstrs");
+        $name = $params["sLogoFile"];
+        $tmp_name = $_FILES["logotitleupload"]["tmp_name"];
+        if(is_uploaded_file($tmp_name)){
+            move_uploaded_file($tmp_name, getShopBasePath() . "out/" . $config->getConfigParam('sTheme') . "/img/".$name);
+        }
+        $name = $params["sEmailLogo"];
+        $tmp_name = $_FILES["logoemailupload"]["tmp_name"];
+        if(is_uploaded_file($tmp_name)) {
+            move_uploaded_file($tmp_name, getShopBasePath() . "out/" . $config->getConfigParam('sTheme') . "/img/".$name);
         }
     }
 
@@ -103,18 +62,5 @@ class fcDesignEditorAdminController_main extends ShopConfiguration
 
 
 
-    /**
-     * Deletes Item Out Of List
-     */
-    public function delete(){
-        $soxId = $this->getEditObjectId();
-        $oPluginList = oxNew(fcdesigneditdata::class);
-        if ($soxId != "-1") {
-            $oPluginList->loadInLang($this->_iEditLang, $soxId);
-        } else {
-            $aParams['fcsupportform_plugins__oxid'] = null;
-        }
-        $oPluginList->delete($soxId);
-    }
 
 }

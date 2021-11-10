@@ -24,7 +24,8 @@ class fcDesignEditorAdminController_list extends AdminListController
      *
      * @var string
      */
-    protected $_sListClass = fcDesignEdit_data::class;
+//  protected $_sListClass = fcDesignEdit_data::class;
+    protected $_sListClass = null;
 
     /**
      * Default SQL sorting parameter (default null).
@@ -44,15 +45,4 @@ class fcDesignEditorAdminController_list extends AdminListController
         return $this->_sThisTemplate;
     }
 
-    /**
-     * Updates the views so tables and new Plugins that have been created are loaded into list
-     *
-     */
-//    public function updateViews(){
-//        Events::addAllPluginsToList();
-//        Events::updateActiveInShop();
-//        Events::updateDeletedArticles();
-//        $oMetaData = oxNew(\OxidEsales\Eshop\Core\DbMetaDataHandler::class);
-//        $oMetaData->updateViews();
-//    }
 }

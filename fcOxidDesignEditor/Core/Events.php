@@ -25,7 +25,7 @@ class Events
 
     public static function onActivate()
     {
-        self::addDatabaseStructure();
+//      self::addDatabaseStructure();
         self::clearTmp();
     }
 
