@@ -2,7 +2,6 @@
 
 namespace FATCHIP\fcOxidDesignEditor\Application\Model;
 
-use oxDb;
 use OxidEsales\Eshop\Core\Registry;
 
 /**
