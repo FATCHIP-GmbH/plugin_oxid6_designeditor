@@ -7,17 +7,6 @@
     [{assign var="readonly" value=""}]
     [{/if}]
 
-<script type="text/javascript">
-    <!--
-    window.onload = function ()
-    {
-        top.reloadEditFrame();
-        [{if $updatelist == 1}]
-        top.oxid.admin.updateList('[{$oxid}]');
-        [{/if}]
-    };
-    -->
-</script>
 [{include file="pagetabsnippet.tpl"}]
 
 <script type="text/javascript">
