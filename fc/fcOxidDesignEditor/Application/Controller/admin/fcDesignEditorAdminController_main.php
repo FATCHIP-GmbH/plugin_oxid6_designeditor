@@ -55,6 +55,11 @@ class fcDesignEditorAdminController_main extends ShopConfiguration
         if(is_uploaded_file($tmp_name)) {
             move_uploaded_file($tmp_name, getShopBasePath() . "out/" . $config->getConfigParam('sTheme') . "/img/".$name);
         }
+        $name = $params["sFaviconFile"];
+        $tmp_name = $_FILES["faviconupload"]["tmp_name"];
+        if(is_uploaded_file($tmp_name)) {
+            move_uploaded_file($tmp_name, getShopBasePath() . "out/" . $config->getConfigParam('sTheme') . "/img/favicons/".$name);
+        }
     }
 
 

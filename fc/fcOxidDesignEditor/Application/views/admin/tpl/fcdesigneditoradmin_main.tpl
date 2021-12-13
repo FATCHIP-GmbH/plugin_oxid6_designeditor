@@ -79,6 +79,22 @@
                     </tr>
                     <tr>
                         <td class="edittext">
+                            [{oxmultilang ident="FCDESIGNEDITOR_MAIN_FAVICONTITLE"}]
+                        </td>
+                        <td class="edittext">
+                            <input id="faviconText" type="text" class="txt" name="confstrs[sFaviconFile]" value="[{$confstrs.sFaviconFile}]">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="edittext">
+                            [{oxmultilang ident="FCDESIGNEDITOR_MAIN_FAVICONUPLOAD"}]
+                        </td>
+                        <td class="edittext" colspan="2">
+                            <input id="faviconUpload" class="editinput" name="faviconupload" type="file"  size="26" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="edittext">
                         </td>
                         <td class="edittext"><br>
                             <input  type="submit" class="edittext" name="save" value="[{oxmultilang ident="GENERAL_SAVE"}]" onClick="Javascript:document.myedit.fnc.value='save'" [{$readonly}]>
@@ -92,9 +108,10 @@
 <script>
     document.getElementById("headerUpload").onchange = fcHeader;
     document.getElementById("emailUpload").onchange = fcEmail;
+    document.getElementById("faviconUpload").onchange = fcFavicon;
     function fcHeader() { uploadOnChange("headerText",this.value)}
     function fcEmail() { uploadOnChange("emailText",this.value)}
-
+    function fcFavicon() { uploadOnChange("faviconText",this.value)}
     function uploadOnChange(textfield,filename) {
         var lastIndex = filename.lastIndexOf("\\");
         if (lastIndex >= 0) {

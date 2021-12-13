@@ -15,4 +15,6 @@ $aLang = array(
     'FCDESIGNEDITOR_MAIN_LOGOEMAILUPLOAD'       =>'Logo Email Upload',
     'FCDESIGNEDITOR_MAIN_LOGOHEIGHT'            =>'Logo Max Height in px',
     'FCDESIGNEDITOR_MAIN_LOGOWIDTH'             =>'Logo Max Width in px',
+    'FCDESIGNEDITOR_MAIN_FAVICONTITLE'          =>'Favicon Filename',
+    'FCDESIGNEDITOR_MAIN_FAVICONUPLOAD'         =>'Favicon Upload',
 );
