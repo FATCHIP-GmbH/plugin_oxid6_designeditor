@@ -20,6 +20,7 @@ class fcDesignEditorAdminController_main extends ShopConfiguration
      * @var string
      */
     protected $_sThisTemplate = 'fcdesigneditoradmin_main.tpl';
+    public $upload_message = [];
 
 
     /**
@@ -42,25 +43,38 @@ class fcDesignEditorAdminController_main extends ShopConfiguration
      */
     public function save()
     {
-        parent::save();
+
         $config = Registry::getConfig();
         $params = $config->getRequestParameter("confstrs");
         $name = $params["sLogoFile"];
         $tmp_name = $_FILES["logotitleupload"]["tmp_name"];
-        if(is_uploaded_file($tmp_name)){
-            move_uploaded_file($tmp_name, getShopBasePath() . "out/" . $config->getConfigParam('sTheme') . "/img/".$name);
+        if (is_uploaded_file($tmp_name)) {
+            move_uploaded_file($tmp_name, getShopBasePath() . "out/" . $config->getConfigParam('sTheme') . "/img/" . $name);
+            $this->upload_message["success"][] = "FCDESIGNEDITOR_MAIN_LOGOTITLEUPLOAD_SUCCESS";
         }
+
         $name = $params["sEmailLogo"];
         $tmp_name = $_FILES["logoemailupload"]["tmp_name"];
-        if(is_uploaded_file($tmp_name)) {
-            move_uploaded_file($tmp_name, getShopBasePath() . "out/" . $config->getConfigParam('sTheme') . "/img/".$name);
+        if (is_uploaded_file($tmp_name)) {
+            move_uploaded_file($tmp_name, getShopBasePath() . "out/" . $config->getConfigParam('sTheme') . "/img/" . $name);
+            $this->upload_message["success"][] = "FCDESIGNEDITOR_MAIN_LOGOEMAILUPLOAD_SUCCESS";
         }
+
         $name = $params["sFaviconFile"];
         $tmp_name = $_FILES["faviconupload"]["tmp_name"];
-        if(is_uploaded_file($tmp_name)) {
-            move_uploaded_file($tmp_name, getShopBasePath() . "out/" . $config->getConfigParam('sTheme') . "/img/favicons/".$name);
+        $fileStatus = $_FILES["faviconupload"]["error"];
+        $fileType = $_FILES["faviconupload"]["type"];
+        if ($fileStatus === UPLOAD_ERR_OK && $fileType == "image/x-icon") {
+            if (is_uploaded_file($tmp_name)) {
+                move_uploaded_file($tmp_name, getShopBasePath() . "out/" . $config->getConfigParam('sTheme') . "/img/favicons/" . $name);
+                $this->upload_message["success"][] = "FCDESIGNEDITOR_MAIN_FAVICONUPLOAD_SUCCESS";
+            }
+        } elseif ($fileStatus === UPLOAD_ERR_OK && $fileType != "image/x-icon") {
+            $this->upload_message["errors"][] = "FCDESIGNEDITOR_MAIN_FAVICONUPLOAD_ERROR";
         }
+        parent::save();
     }
+
 
 
 

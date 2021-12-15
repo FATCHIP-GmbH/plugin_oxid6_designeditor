@@ -16,6 +16,13 @@ $aLang = array(
     'FCDESIGNEDITOR_MAIN_LOGOHEIGHT'            =>'Logo Max Höhe in px',
     'FCDESIGNEDITOR_MAIN_LOGOWIDTH'             =>'Logo Max Breite in px',
     'FCDESIGNEDITOR_MAIN_FAVICONTITLE'          =>'Favicon Filename',
-    'FCDESIGNEDITOR_MAIN_FAVICONUPLOAD'         =>'Favicon Upload',
+    'FCDESIGNEDITOR_MAIN_FAVICONUPLOAD'         =>'Favicon Upload (nur *.ico)',
+    'FCDESIGNEDITOR_MAIN_FAVICONUPLOAD_HELP'    =>'Bitte nur ICO Dateien hochladen ',
+
+
+    'FCDESIGNEDITOR_MAIN_FAVICONUPLOAD_SUCCESS'     =>'Favicon erfolgreich hochgeladen',
+    'FCDESIGNEDITOR_MAIN_FAVICONUPLOAD_ERROR'       =>'Bitte nur ICO Dateien hochladen logo nicht hochgeladen',
+    'FCDESIGNEDITOR_MAIN_LOGOTITLEUPLOAD_SUCCESS'   =>'Logo Header erfolgreich hochgeladen',
+    'FCDESIGNEDITOR_MAIN_LOGOEMAILUPLOAD_SUCCESS'   =>'Logo Email erfolgreich hochgeladen',
 
 );
