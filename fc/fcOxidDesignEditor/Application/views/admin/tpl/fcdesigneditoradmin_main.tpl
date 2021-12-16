@@ -1,5 +1,19 @@
 [{include file="headitem.tpl" title="GENERAL_ADMIN_TITLE"|oxmultilangassign}]
 
+
+    <style>
+        .successbox {
+            color: limegreen;
+            font-weight: bold;
+            padding: 3px 9px;
+            background: #ffe;
+            border: solid gray 1px;
+            margin: 1px 0 15px 0;
+        }
+        .errorbox{
+        }
+    </style>
+
 [{if $readonly}]
     [{assign var="readonly" value="readonly disabled"}]
     [{else}]
@@ -22,6 +36,14 @@
     <input type="hidden" name="language" value="[{$actlang}]">
 
 
+    [{if !empty($oView->upload_message) }]
+        [{foreach from=$oView->upload_message.success item=messageMultilang}]
+            <div class="successbox">[{oxmultilang ident=$messageMultilang}]</div>
+        [{/foreach}]
+        [{foreach from=$oView->upload_message.errors item=messageMultilang}]
+            <div class="errorbox">[{oxmultilang ident=$messageMultilang}]</div>
+        [{/foreach}]
+    [{/if}]
     <table cellspacing="0" cellpadding="0" border="0" width="98%">
         <tr>
             <td width="15"></td>
@@ -90,7 +112,8 @@
                             [{oxmultilang ident="FCDESIGNEDITOR_MAIN_FAVICONUPLOAD"}]
                         </td>
                         <td class="edittext" colspan="2">
-                            <input id="faviconUpload" class="editinput" name="faviconupload" type="file"  size="26" />
+                            <input id="faviconUpload" class="editinput" name="faviconupload" type="file" accept="image/x-icon" size="26" />
+                            [{oxinputhelp ident="FCDESIGNEDITOR_MAIN_FAVICONUPLOAD_HELP"}]
                         </td>
                     </tr>
                     <tr>
@@ -112,6 +135,7 @@
     function fcHeader() { uploadOnChange("headerText",this.value)}
     function fcEmail() { uploadOnChange("emailText",this.value)}
     function fcFavicon() { uploadOnChange("faviconText",this.value)}
+    
     function uploadOnChange(textfield,filename) {
         var lastIndex = filename.lastIndexOf("\\");
         if (lastIndex >= 0) {
