@@ -1,7 +1,18 @@
 [{include file="headitem.tpl" title="GENERAL_ADMIN_TITLE"|oxmultilangassign}]
 
 
-
+    <style>
+        .successbox {
+            color: limegreen;
+            font-weight: bold;
+            padding: 3px 9px;
+            background: #ffe;
+            border: solid gray 1px;
+            margin: 1px 0 15px 0;
+        }
+        .errorbox{
+        }
+    </style>
 
 [{if $readonly}]
     [{assign var="readonly" value="readonly disabled"}]
@@ -27,10 +38,10 @@
 
     [{if !empty($oView->upload_message) }]
         [{foreach from=$oView->upload_message.success item=messageMultilang}]
-            <h1 style="background-color: lightgreen; text-align: center">[{oxmultilang ident=$messageMultilang}]</h1>
+            <div class="successbox">[{oxmultilang ident=$messageMultilang}]</div>
         [{/foreach}]
         [{foreach from=$oView->upload_message.errors item=messageMultilang}]
-            <h1 style="background-color: lightcoral; text-align: center">[{oxmultilang ident=$messageMultilang}]</h1>
+            <div class="errorbox">[{oxmultilang ident=$messageMultilang}]</div>
         [{/foreach}]
     [{/if}]
     <table cellspacing="0" cellpadding="0" border="0" width="98%">

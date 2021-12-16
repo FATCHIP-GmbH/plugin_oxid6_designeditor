@@ -21,7 +21,7 @@ $aLang = array(
 
 
     'FCDESIGNEDITOR_MAIN_FAVICONUPLOAD_SUCCESS'     =>'Favicon erfolgreich hochgeladen',
-    'FCDESIGNEDITOR_MAIN_FAVICONUPLOAD_ERROR'       =>'Bitte nur ICO Dateien hochladen logo nicht hochgeladen',
+    'FCDESIGNEDITOR_MAIN_FAVICONUPLOAD_ERROR'       =>'Bitte nur ICO Dateien hochladen. Favicon nicht hochgeladen.',
     'FCDESIGNEDITOR_MAIN_LOGOTITLEUPLOAD_SUCCESS'   =>'Logo Header erfolgreich hochgeladen',
     'FCDESIGNEDITOR_MAIN_LOGOEMAILUPLOAD_SUCCESS'   =>'Logo Email erfolgreich hochgeladen',
 
