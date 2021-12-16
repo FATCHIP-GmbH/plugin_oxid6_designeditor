@@ -20,9 +20,13 @@ $aLang = array(
     'FCDESIGNEDITOR_MAIN_FAVICONUPLOAD_HELP'    =>'Bitte nur ICO Dateien hochladen ',
 
 
+    'FCDESIGNEDITOR_MAIN_FAVICONUPLOAD_NOTRIGHTFILE'=>'Bitte nur ICO Dateien hochladen. Favicon nicht hochgeladen.',
+
     'FCDESIGNEDITOR_MAIN_FAVICONUPLOAD_SUCCESS'     =>'Favicon erfolgreich hochgeladen',
-    'FCDESIGNEDITOR_MAIN_FAVICONUPLOAD_ERROR'       =>'Bitte nur ICO Dateien hochladen. Favicon nicht hochgeladen.',
     'FCDESIGNEDITOR_MAIN_LOGOTITLEUPLOAD_SUCCESS'   =>'Logo Header erfolgreich hochgeladen',
     'FCDESIGNEDITOR_MAIN_LOGOEMAILUPLOAD_SUCCESS'   =>'Logo Email erfolgreich hochgeladen',
 
+    'FCDESIGNEDITOR_MAIN_LOGOEMAILUPLOAD_ERROR'     =>'Logo Email Upload nicht erfolgreich (keine gültige Datei/verzeichnis für theme existiert nicht/kein Zugriff)',
+    'FCDESIGNEDITOR_MAIN_FAVICONUPLOAD_ERROR'       =>'Favicon Upload nicht erfolgreich (keine gültige Datei/verzeichnis für theme existiert nicht/kein Zugriff)',
+    'FCDESIGNEDITOR_MAIN_LOGOTITLEUPLOAD_ERROR'     =>'Logo Header Upload nicht erfolgreich (keine gültige Datei/verzeichnis für theme existiert nicht/kein Zugriff)',
 );
